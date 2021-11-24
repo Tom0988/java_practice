@@ -12,7 +12,7 @@ class Machine{  // what we want to do in this class :
     int total = 0;
     static int[] coinType = {10, 5, 1};
     Map<String, Integer> drinksName = new HashMap<>();
-    void initDrinks(){
+    public Machine(){
         this.drinksName.put("coffee", 20);
         this.drinksName.put("water", 15);
         this.drinksName.put("cola", 25);
@@ -40,6 +40,7 @@ class Machine{  // what we want to do in this class :
                     i++;
                 }
             }
+            System.out.println("your total still have: " + this.total);
         }else System.out.println("your maney is not enough...");
     }
 
@@ -51,7 +52,6 @@ class Machine{  // what we want to do in this class :
 public class Execute {
     public static void main(String[] args) {
         Machine machine = new Machine();
-        machine.initDrinks();
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while(!exit){
@@ -59,7 +59,7 @@ public class Execute {
             int input = sc.nextInt();
             switch (input){
                 case 1:
-                    System.out.print("enter your coin: (1, 5, 10)");
+                    System.out.print("enter your coin: (1, 5, 10): ");
                     int coin = sc.nextInt();
                     machine.inputCoin(coin);
                     break;
